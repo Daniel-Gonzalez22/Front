@@ -18,6 +18,7 @@ import FormControl from '@material-ui/core/FormControl';
 const styles = theme => ({
     root: {
         width: '100%',
+        height:'95vh',
         marginTop: theme.spacing.unit * 3,
         overflowX: 'auto'
     },
@@ -115,6 +116,7 @@ const ProcessTable2 = (props) => {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
+                'Content-Security-Policy': 'upgrade-insecure-requests'
             },
         };
         const response = await fetch(`${api_host}/getAsistencias`, requestOptions)

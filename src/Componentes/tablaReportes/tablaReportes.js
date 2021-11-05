@@ -12,6 +12,7 @@ import api_host from '../conf/creds';
 const styles = theme => ({
     root: {
         width: '100%',
+        height:'95vh',
         marginTop: theme.spacing.unit * 3,
         overflowX: 'auto'
     },
@@ -65,7 +66,6 @@ const ProcessTable = (props) => {
 
     const [search, setSearch] = useState('');
     const [data, setData] = useState([]);
-    const url = "http://52.32.30.83:2801/";
 
     const [open1, setOpen1] = useState(false);
 
@@ -101,6 +101,7 @@ const ProcessTable = (props) => {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
+                'Content-Security-Policy': 'upgrade-insecure-requests'
             },
         };
         const response = await fetch(`${api_host}/getReportes`, requestOptions)

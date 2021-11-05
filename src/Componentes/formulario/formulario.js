@@ -12,22 +12,23 @@ import api_host from '../conf/creds';
 
 const useStyles = makeStyles((theme) => ({
   principal: {
-     height:'96vh',
+     height:'90vh',
+     width:'100%',
     },
  encabezado: {
     width:'55%',
     height:'6%',
     marginLeft:'22%',
-    marginTop:'1.7%',
+    marginTop:'0%',
     backgroundColor:'#3B48A0 ',
     },
-  formulario: { 
-     
+  formulario: {   
     backgroundColor:'inherit',
     width:'55%',
     height:'80%',
+    marginTop:'0%',
     marginLeft:'22%',
-    boxShadow: '2px 4px 4px 3px rgba(0, 0, 0, 0.2)'
+    //boxShadow: '2px 4px 4px 3px rgba(0, 0, 0, 0.2)'
     },
   paper2: {   
     padding: '1%',
@@ -125,7 +126,9 @@ export default function Formulario() {
       };
    const requestOptions = {
        method: 'POST',
-       headers: { 'Content-Type': 'application/json' },
+       headers: { 'Content-Type': 'application/json',
+                  'Content-Security-Policy': 'upgrade-insecure-requests'
+       },
        body: JSON.stringify(body)
     };
     const response = await fetch(`${api_host}/enviarReporte`, requestOptions)
